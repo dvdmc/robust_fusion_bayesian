@@ -1,0 +1,28 @@
+<launch>
+
+    <arg name="experiment_save_path" default="not_defined"/>
+
+    <!-- Publish stati transform from cam0_odom to map as the identity-->
+    <node pkg="tf" type="static_transform_publisher" name="cam0_odom_to_map" args="0 0 0 0 0 0 1 map cam0_odom 100" />
+    
+    <node pkg="sensors_tools_ros" type="semantic_node.py" name="semantic_sensor" output="screen">
+        <rosparam command="load" file="$(find robust_semantic)/cfg/sensor.yaml" />
+    </node>
+
+    <node pkg="semantic_mapping_ros" type="voxel_map" name="voxel_map" output="screen">
+        <param name="experiment_save_path" value="$(arg experiment_save_path)"/>
+
+        <rosparam command="load" file="$(find robust_semantic)/cfg/voxel_map.yaml" />
+
+        <remap from="point_cloud" to="/cam0/point_cloud"/>
+    </node>
+
+    <node pkg="robust_semantic" type="robust_semantic_node" name="robust_semantic_node" output="screen">
+        <param name="data_source" value="DATASET"/>
+
+        <remap from="point_cloud" to="/cam0/point_cloud"/>
+        <remap from="capture_data" to="/cam0/capture_data"/>
+        <remap from="move" to="/cam0/move"/>
+    </node>
+
+</launch>

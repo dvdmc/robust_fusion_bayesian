@@ -1,0 +1,20 @@
+frequency: -1.0 # Frequency of the sensor in Hz. -1 means that we are using a service instead of a timer
+
+# Config for bridge is in sensors_tools/bridge/{bridge_type}.py
+bridge:
+  bridge_type: 'scannet' # Source of the sensor. It can be 'airsim' or 'ros'
+  data_types: ['rgb', 'depth', 'semantic', 'pose'] # Data types to be published. It can be 'rgb', 'depth', 'segmentation', 'pointcloud'
+  dataset_path: '/media/david/dataset/ScanNet/scene0005_00'
+  tsv_path: '/media/david/dataset/ScanNet/scannetv2-labels.combined.tsv'
+  downsampling_factor_dataset: 20
+  width: 512
+  height: 512
+
+# Config for inference is in sensors_tools/inference/{inference_type}.py
+inference:
+  inference_type: 'deterministic' # Type of inference. It can be 'deterministic' or 'mcd'
+  model_name: "deeplabv3_resnet101"
+  num_classes: 14
+  labels_name: "nyu2_14"
+  # weights_path: "None"
+  mcd_samples: 10 # Number of samples for the MCD inference

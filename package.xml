@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robust_semantic</name>
+  <version>0.0.1</version>
+  <description>ROS Implementation for the paper "Robust Bayesian Fusion for Semantic Mapping</description>
+  <maintainer email="davidmc@unizar.es">David Morilla-Cabello</maintainer>
+
+  <license>BSD</license>
+
+  <url type="repository">https://github.com/dvdmc/robust_semantic</url>
+
+  <author email="davidmc@unizar.es">David Morilla-Cabello</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <depend>roscpp</depend>
+  <depend>std_srvs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>ipp_tools</depend>
+
+</package>
