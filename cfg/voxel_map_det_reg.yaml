@@ -9,9 +9,9 @@ beta: 0.3
 
 map_frame: "map"
 
-save_experiment: false
+save_experiment: true
 save_each_n_updates: 10
-experiment_save_path: "/home/semantic_mapping/experiments/"
+experiment_save_path: "/home/david/semantic_mapping/experiments/"
 
 visualize_semantics: true
 visualize_semantics_frequency: 10

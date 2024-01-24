@@ -1,6 +1,8 @@
 <launch>
 
-    <arg name="experiment_save_path" default="not_defined"/>
+    <arg name="inf_method" default="det"/>
+    <arg name="reg" default="reg"/>
+    <arg name="sequence_name" default="scene0005"/>
 
     <!-- Publish stati transform from cam0_odom to map as the identity-->
     <node pkg="tf" type="static_transform_publisher" name="cam0_odom_to_map" args="0 0 0 0 0 0 1 map cam0_odom 100" />
@@ -10,9 +12,10 @@
     </node>
 
     <node pkg="semantic_mapping_ros" type="voxel_map" name="voxel_map" output="screen">
-        <param name="experiment_save_path" value="$(arg experiment_save_path)"/>
+    
+        <param name="experiment_map_name" value="$(arg sequence_name)"/>
 
-        <rosparam command="load" file="$(find robust_semantic)/cfg/voxel_map.yaml" />
+        <rosparam command="load" file="$(find robust_semantic)/cfg/voxel_map_$(arg inf_method)_$(arg reg).yaml" />
 
         <remap from="point_cloud" to="/cam0/point_cloud"/>
     </node>

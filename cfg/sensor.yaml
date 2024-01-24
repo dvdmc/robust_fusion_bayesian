@@ -16,5 +16,5 @@ inference:
   model_name: "deeplabv3_resnet101"
   num_classes: 14
   labels_name: "nyu2_14"
-  # weights_path: "None"
+  weights_path: "/home/david/research/APbayDL/preliminaryBayesian/models/MCD_0_Res101_withbackground20"
   mcd_samples: 10 # Number of samples for the MCD inference
