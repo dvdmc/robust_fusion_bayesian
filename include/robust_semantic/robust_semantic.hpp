@@ -61,7 +61,7 @@ class RobustSemanticNode {
   DataSource p_data_source_;
   std::string p_poses_path_;
   std::string p_poses_file_;
-  std::vector<Eigen::Affine3d> poses_;
+  std::vector<Eigen::Affine3f> poses_;
 
   // Methods
 

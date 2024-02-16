@@ -35,7 +35,7 @@ RobustSemanticNode::RobustSemanticNode(ros::NodeHandle &nh,
         planner_->plan();
         poses_ = planner_->getPath();
         curr_pose_idx_ = 0;
-        Eigen::Affine3d first_pose = poses_[curr_pose_idx_];
+        Eigen::Affine3f first_pose = poses_[curr_pose_idx_];
         // Send the first pose to the sensor
         bridge_->sendPose(first_pose);
 
@@ -105,7 +105,7 @@ void RobustSemanticNode::pcdCallback(
             ros::shutdown();
             return;
         }
-        Eigen::Affine3d next_pose = poses_[curr_pose_idx_++];
+        Eigen::Affine3f next_pose = poses_[curr_pose_idx_++];
         bridge_->sendPose(next_pose);
 
         // Send capture request

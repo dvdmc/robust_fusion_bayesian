@@ -1,10 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
-cmake_policy(SET CMP0148 OLD)
 
 project(robust_semantic)
 
 # set this to path to AirSim root folder if you want your catkin workspace in a custom directory
-set(AIRSIM_ROOT /media/david/AirSim)
+set(AIRSIM_ROOT /media/david/git/Colosseum)
 add_subdirectory("${AIRSIM_ROOT}/cmake/rpclib_wrapper" rpclib_wrapper)
 add_subdirectory("${AIRSIM_ROOT}/cmake/AirLib" AirLib)
 add_subdirectory("${AIRSIM_ROOT}/cmake/MavLinkCom" MavLinkCom)

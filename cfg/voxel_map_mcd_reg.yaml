@@ -1,17 +1,6 @@
-depth_threshold: 7
-resolution: 0.1
-
 n_classes: 14
-dl_method: "MCD"
-fusion_method: "W_BAY"
-uncertainty_method: "UNCERTAINTY"
-beta: 0.3
-
-map_frame: "map"
-
-save_experiment: true
-save_each_n_updates: 10
-experiment_save_path: "/home/david/semantic_mapping/experiments/"
-
-visualize_semantics: true
-visualize_semantics_frequency: 10
+method:
+  dl_method: "MCD"
+  fusion_method: "W_BAY"
+  uncertainty_method: "UNCERTAINTY"
+  beta: 0.3

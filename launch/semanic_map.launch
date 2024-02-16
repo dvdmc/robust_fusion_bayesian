@@ -16,6 +16,7 @@
         <param name="experiment_map_name" value="$(arg sequence_name)"/>
 
         <rosparam command="load" file="$(find robust_semantic)/cfg/voxel_map_$(arg inf_method)_$(arg reg).yaml" />
+        <rosparam command="load" file="$(find robust_semantic)/cfg/voxel_map_common.yaml" />
 
         <remap from="point_cloud" to="/cam0/point_cloud"/>
     </node>
